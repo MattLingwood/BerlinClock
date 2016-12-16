@@ -1,5 +1,9 @@
 package ClockFigures;
 
+import DisplayNodes.DisplayNode;
+import DisplayNodes.RedDisplayNode;
+import DisplayNodes.YellowDisplayNode;
+
 import java.util.LinkedList;
 import java.util.List;
 

@@ -1,5 +1,7 @@
 package ClockFigures;
 
+import DisplayNodes.DisplayNode;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -9,36 +11,38 @@ import static org.hamcrest.core.Is.is;
  * Created by Matt on 16/12/2016.
  */
 public class SecondsDisplayTest {
+    private SecondsDisplay display;
+
+    @Before
+    public void init(){
+        display = new SecondsDisplay();
+    }
 
     @Test
     public void Even_seconds_are_Yellow(){
-        SecondsDisplay secondsColour = new SecondsDisplay();
+        DisplayNode node = display.getDisplay(10);
 
-        DisplayNode display = secondsColour.getDisplay(10);
-
-        assertThat(display.getColour(), is("Yellow"));
+        assertThat(node.getColour(), is("Yellow"));
     }
 
     @Test
     public void Odd_seconds_are_Off() {
-        SecondsDisplay secondsColour = new SecondsDisplay();
+        DisplayNode node = display.getDisplay(9);
 
-        DisplayNode display = secondsColour.getDisplay(9);
-
-        assertThat(display.getColour(), is("Off"));
+        assertThat(node.getColour(), is("Off"));
     }
 
     @Test
     public void On_off_on_are_Yellow_Off_Yellow(){
-        SecondsDisplay secondsColour = new SecondsDisplay();
+        DisplayNode firstNode = display.getDisplay(10);
+        String firstReturnedColour = firstNode.getColour();
+        DisplayNode secondNode = display.getDisplay(11);
+        String secondReturnedColour = secondNode.getColour();
+        DisplayNode thirdNode = display.getDisplay(12);
+        String thirdReturnedColour = thirdNode.getColour();
 
-        DisplayNode firstNode = secondsColour.getDisplay(10);
-        assertThat(firstNode.getColour(), is("Yellow"));
-
-        DisplayNode secondNode = secondsColour.getDisplay(11);
-        assertThat(secondNode.getColour(), is("Off"));
-
-        DisplayNode thirdNode = secondsColour.getDisplay(12);
-        assertThat(thirdNode.getColour(), is("Yellow"));
+        assertThat(firstReturnedColour, is("Yellow"));
+        assertThat(secondReturnedColour, is("Off"));
+        assertThat(thirdReturnedColour, is("Yellow"));
     }
 }

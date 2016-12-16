@@ -1,5 +1,6 @@
 package ClockFigures;
 
+import DisplayNodes.DisplayNode;
 import org.junit.Before;
 import org.junit.Test;
 
