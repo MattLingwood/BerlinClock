@@ -1,5 +1,6 @@
 package ClockFigures;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -10,39 +11,40 @@ import static org.hamcrest.core.Is.is;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class HourDisplayTest {
+public class HourDisplayTest extends DisplayTestSpecification {
+    private DisplayBase display;
+
+    @Before
+    public void init(){
+        display = new HoursDisplay();
+    }
+
     @Test
     public void all_displays_are_off_by_default(){
-        HoursDisplay displays = new HoursDisplay();
+        List<DisplayNode> activeDisplays = display.activateDisplays(0);
 
-        List<DisplayNode> activeDisplays = displays.activateDisplays(0);
-
-        assertThat(((int) activeDisplays.stream().filter(display -> display.isOn()).count()), is(0));
+        assertThat((countActiveDisplays(activeDisplays)), is(0));
     }
     @Test
     public void One_returns_one_display(){
-        HoursDisplay displays = new HoursDisplay();
+        List<DisplayNode> activeDisplays = display.activateDisplays(1);
 
-        List<DisplayNode> activeDisplays = displays.activateDisplays(1);
-
-        assertThat(((int) activeDisplays.stream().filter(display -> display.isOn()).count()), is(1));
+        assertThat((countActiveDisplays(activeDisplays)), is(1));
     }
 
     @Test
     public void four_returns_four_displays(){
-        HoursDisplay displays = new HoursDisplay();
+        List<DisplayNode> activeDisplays = display.activateDisplays(4);
 
-        List<DisplayNode> activeDisplays = displays.activateDisplays(4);
-
-        assertThat(((int) activeDisplays.stream().filter(display -> display.isOn()).count()), is(4));
+        assertThat((countActiveDisplays(activeDisplays)), is(4));
     }
 
     @Test
     public void five_returns_zero_displays(){
-        HoursDisplay displays = new HoursDisplay();
+        List<DisplayNode> activeDisplays = display.activateDisplays(5);
 
-        List<DisplayNode> activeDisplays = displays.activateDisplays(5);
-
-        assertThat(((int) activeDisplays.stream().filter(display -> display.isOn()).count()), is(0));
+        assertThat(countActiveDisplays(activeDisplays), is(0));
     }
+
+
 }

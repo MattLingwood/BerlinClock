@@ -11,7 +11,7 @@ import static org.hamcrest.core.Is.is;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class FiveMinuteDisplayTest {
+public class FiveMinuteDisplayTest extends DisplayTestSpecification{
     private DisplayBase display;
 
     @Before
@@ -24,24 +24,20 @@ public class FiveMinuteDisplayTest {
 
         List<DisplayNode> activeDisplays = display.activateDisplays(0);
 
-        assertThat((countOfActiveDisplays(activeDisplays)), is(0));
+        assertThat((countActiveDisplays(activeDisplays)), is(0));
     }
     @Test
     public void twenty_five_returns_5_active_displays(){
 
         List<DisplayNode> activeDisplays = display.activateDisplays(25);
 
-        assertThat((countOfActiveDisplays(activeDisplays)), is(5));
+        assertThat((countActiveDisplays(activeDisplays)), is(5));
     }
     @Test
     public void fifty_five_returns_eleven_active_displays(){
 
         List<DisplayNode> activeDisplays = display.activateDisplays(55);
 
-        assertThat(countOfActiveDisplays(activeDisplays), is(11));
-    }
-
-    private int countOfActiveDisplays(List<DisplayNode> activeDisplays) {
-        return (int) activeDisplays.stream().filter(display -> display.isOn()).count();
+        assertThat(countActiveDisplays(activeDisplays), is(11));
     }
 }
