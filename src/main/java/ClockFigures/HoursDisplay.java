@@ -7,11 +7,11 @@ import java.util.List;
  * Created by Matt on 16/12/2016.
  */
 
-public class FiveHoursDisplay extends DisplayBase {
+public class HoursDisplay extends DisplayBase {
 
     private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
 
-    public FiveHoursDisplay(){
+    public HoursDisplay(){
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
@@ -20,7 +20,9 @@ public class FiveHoursDisplay extends DisplayBase {
 
     public List<DisplayNode> activateDisplays(int hours) {
 
-        int activeDisplays = hours/5;
+        int activeDisplays = hours%5;
         return turnDisplaysOn(activeDisplays, displayNodes);
     }
+
+
 }

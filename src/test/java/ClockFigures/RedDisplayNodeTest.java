@@ -32,4 +32,24 @@ public class RedDisplayNodeTest {
 
         assertThat(redDisplayNode.getColour(),is("Red"));
     }
+
+    @Test
+    public void Set_to_on_returns_true(){
+        RedDisplayNode node = new RedDisplayNode();
+
+        node.setOn();
+        boolean on = node.isOn();
+
+        assertThat(on, is(true));
+    }
+
+    @Test
+    public void Set_to_off_returns_false(){
+        RedDisplayNode node = new RedDisplayNode();
+
+        node.setOff();
+        boolean on = node.isOn();
+
+        assertThat(on, is(false));
+    }
 }

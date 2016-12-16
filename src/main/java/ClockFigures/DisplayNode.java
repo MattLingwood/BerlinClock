@@ -3,7 +3,7 @@ package ClockFigures;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class DisplayNode {
+public abstract class DisplayNode {
     private boolean on = false;
 
     public boolean isOn() {
@@ -18,7 +18,5 @@ public class DisplayNode {
         on = false;
     }
 
-    public String getColour() {
-        return "Off";
-    }
+    public abstract String getColour();
 }
