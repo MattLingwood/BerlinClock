@@ -3,7 +3,6 @@ package ClockFigures;
 import DisplayNodes.DisplayNode;
 import DisplayNodes.RedDisplayNode;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,8 +10,6 @@ import java.util.List;
  */
 
 public class FiveHoursDisplay extends DisplayBase {
-
-    private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
 
     public FiveHoursDisplay(){
         displayNodes.add(new RedDisplayNode());

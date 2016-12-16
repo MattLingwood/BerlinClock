@@ -8,21 +8,18 @@ import java.util.List;
 /**
  * Created by Matt on 16/12/2016.
  */
+public class MinutesDisplay extends DisplayBase {
 
-public class HoursDisplay extends DisplayBase {
-
-    public HoursDisplay(){
+    public MinutesDisplay(){
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
     }
 
-    public List<DisplayNode> activateDisplays(int hours) {
-
-        int activeDisplays = hours%5;
+    @Override
+    public List<DisplayNode> activateDisplays(int timePeriod) {
+        int activeDisplays = timePeriod%5;
         return turnDisplaysOn(activeDisplays, displayNodes);
     }
-
-
 }

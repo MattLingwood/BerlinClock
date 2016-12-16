@@ -1,18 +1,27 @@
-import ClockFigures.SecondsDisplay;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Matt on 16/12/2016.
  */
 public class Launcher {
     public static void main(String[] args) {
-        SecondsDisplay clock = new SecondsDisplay();
+        launch();
+    }
 
-        Calendar time = new GregorianCalendar();
-        int currentSecond = time.get(Calendar.SECOND);
+    private static void launch() {
+        BerlinClock clock = new BerlinClock();
 
-        System.out.println(clock.getDisplay(currentSecond));
+        Timer timer = new Timer("Display Timer");
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                // Task to be executed every second
+                clock.setTime();
+            }
+        };
+
+        timer.scheduleAtFixedRate(task, 1000, 1000);
     }
 }

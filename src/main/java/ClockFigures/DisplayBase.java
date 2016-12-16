@@ -9,6 +9,8 @@ import java.util.List;
  * Created by Matt on 16/12/2016.
  */
 public abstract class DisplayBase {
+    protected LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+
     protected List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
         int counter=0;
         for (DisplayNode display: displayNodes){
