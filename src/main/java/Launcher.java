@@ -1,3 +1,6 @@
+import Timings.TimeNode;
+import Timings.TimeTeller;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,8 +20,8 @@ public class Launcher {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                // Task to be executed every second
-                clock.setTime();
+                TimeNode time = new TimeTeller().getTime();
+                clock.setTime(time);
             }
         };
 

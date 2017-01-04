@@ -1,3 +1,5 @@
+package Timings;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,9 +9,9 @@ import java.util.Calendar;
  */
 public class TimeTeller {
 
-    public String getTime() {
+    public TimeNode getTime() {
         DateFormat timeFormat = new SimpleDateFormat("HH:mm:00");
         Calendar cali = Calendar.getInstance();
-        return timeFormat.format(cali.getTimeInMillis());
+        return new TimeNode(timeFormat.format(cali.getTimeInMillis()));
     }
 }

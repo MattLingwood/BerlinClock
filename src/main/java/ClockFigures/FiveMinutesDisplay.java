@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class FiveMinuteDisplay extends DisplayBase {
+public class FiveMinutesDisplay extends DisplayBase {
 
-    public FiveMinuteDisplay(){
+    public FiveMinutesDisplay(){
         displayNodes.add(new YellowDisplayNode());
         displayNodes.add(new YellowDisplayNode());
         displayNodes.add(new RedDisplayNode());

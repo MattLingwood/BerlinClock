@@ -1,3 +1,4 @@
+import Timings.TimeNode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,6 +15,8 @@ public class BerlinClockTest {
 
     @Test
     public void Set_time_to_midnight_pm_is_a_default_clock(){
-        clock.setTime();
+        TimeNode time = new TimeNode("00:00:00");
+
+        clock.setTime(time);
     }
 }

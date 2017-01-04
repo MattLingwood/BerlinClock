@@ -12,12 +12,12 @@ import static org.hamcrest.core.Is.is;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class FiveMinuteDisplayTest extends DisplayTestSpecification{
+public class FiveMinutesDisplayTest extends DisplayTestSpecification{
     private DisplayBase display;
 
     @Before
     public void init(){
-        display = new FiveMinuteDisplay();
+        display = new FiveMinutesDisplay();
     }
 
     @Test

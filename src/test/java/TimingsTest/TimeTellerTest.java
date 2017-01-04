@@ -1,3 +1,7 @@
+package TimingsTest;
+
+import Timings.TimeNode;
+import Timings.TimeTeller;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,25 +29,18 @@ public class TimeTellerTest {
 
     @Test
     public void get_midnight_returns_zero_time(){
-        Calendar now = Calendar.getInstance();
-        now.set(0,0,0,0,0,0);
+        SetCalenderTime(0,0,0);
+        TimeNode returnedNode = timeTeller.getTime();
 
-        PowerMockito.mockStatic(Calendar.class);
-        PowerMockito.when(Calendar.getInstance()).thenReturn(now);
-
-
-        assertThat(timeTeller.getTime(),is("00:00:00"));
+        assertThat(returnedNode.getHours(),is(00));
+        assertThat(returnedNode.getMinutes(),is(00));
     }
 
-    @Test
-    public void seconds_greater_than_zero_return_previous_minute(){
+    private void SetCalenderTime(int hours, int minutes, int seconds) {
         Calendar now = Calendar.getInstance();
-        now.set(0,0,0,0,5,37);
+        now.set(0,0,0,hours,minutes,seconds);
 
         PowerMockito.mockStatic(Calendar.class);
         PowerMockito.when(Calendar.getInstance()).thenReturn(now);
-
-
-        assertThat(timeTeller.getTime(),is("00:05:00"));
     }
 }
