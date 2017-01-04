@@ -1,6 +1,10 @@
 **/.class
+*.class
 **/.xml
+*.xml
 */target/**
+target/**
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
