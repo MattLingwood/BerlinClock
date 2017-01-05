@@ -11,6 +11,8 @@ public class BerlinClock {
     private FiveMinutesDisplay fiveMinutesDisplay;
     private MinutesDisplay minutesDisplay;
 
+    private int storedHours, storedMinutes;
+
 
     public BerlinClock() {
         secondsDisplay = new SecondsDisplay();
@@ -21,11 +23,21 @@ public class BerlinClock {
     }
 
     public void setTime(TimeNode time){
+        int hours = time.getHours();
+        int minutes = time.getMinutes();
+
+        if(hours!=storedHours){
+            fiveHoursDisplay.activateDisplays(hours);
+            hoursDisplay.activateDisplays(hours);
+            storedHours = hours;
+        }
+        if(minutes!=storedMinutes){
+            fiveMinutesDisplay.activateDisplays(minutes);
+            minutesDisplay.activateDisplays(minutes);
+            storedMinutes = minutes;
+        }
+
         secondsDisplay.activateDisplays(time.getSeconds());
-        fiveHoursDisplay.activateDisplays(time.getHours());
-        hoursDisplay.activateDisplays(time.getHours());
-        fiveMinutesDisplay.activateDisplays(time.getMinutes());
-        minutesDisplay.activateDisplays(time.getMinutes());
 
         Beautify();
     }
