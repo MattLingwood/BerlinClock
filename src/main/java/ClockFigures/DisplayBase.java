@@ -10,6 +10,7 @@ import java.util.List;
  */
 public abstract class DisplayBase {
     protected LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+    protected static final String ANSI_RESET = "\u001B[0m";
 
     protected List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
         int counter=0;

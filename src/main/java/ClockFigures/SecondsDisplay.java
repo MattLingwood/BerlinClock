@@ -17,12 +17,15 @@ public class SecondsDisplay extends DisplayBase{
     @Override
     public String getPrintableDisplay() {
         String s = displayNodes.getFirst().getColour();
+        String ansiColour = displayNodes.getFirst().getAnsiColour();
 
-        String display = "                              * *                               \n"
+        String display = ansiColour
+                        +"                              * *                               \n"
                         +"                            *     *                             \n"
                         +"                           *   "+s+"   *                            \n"
                         +"                            *     *                             \n"
-                        +"                              * *                               \n";
+                        +"                              * *                               \n"
+                        +ANSI_RESET;
 
         return display;
     }
