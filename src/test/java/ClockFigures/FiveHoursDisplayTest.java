@@ -74,4 +74,24 @@ public class FiveHoursDisplayTest extends DisplayTestSpecification {
         assertThat(countTwo, is(2));
         assertThat(countThree, is(2));
     }
+
+    @Test
+    public void get_printable_display_returns_off_display_string_with_new_clock(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                +" ║     O      ║║     O      ║║     O      ║║     O      ║ \n"
+                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
+
+    @Test
+    public void get_printable_display_returns_3_red_display_string_with_15_hours_time(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                +" ║     R      ║║     R      ║║     R      ║║     O      ║ \n"
+                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+
+        display.activateDisplays(15);
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
 }

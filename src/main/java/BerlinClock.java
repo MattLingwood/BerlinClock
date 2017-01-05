@@ -25,15 +25,15 @@ public class BerlinClock {
 
     public void setTime(TimeNode time){
         DisplayNode seconds = secondsDisplay.getDisplay(time.getSeconds());
-        LinkedList<DisplayNode> fiveHours = (LinkedList<DisplayNode>) fiveHoursDisplay.activateDisplays(time.getHours());
+        fiveHoursDisplay.activateDisplays(time.getHours());
         LinkedList<DisplayNode> hours = (LinkedList<DisplayNode>) hoursDisplay.activateDisplays(time.getHours());
         LinkedList<DisplayNode> fiveMinutes = (LinkedList<DisplayNode>) fiveMinutesDisplay.activateDisplays(time.getMinutes());
-        LinkedList<DisplayNode> minutes = (LinkedList<DisplayNode>) minutesDisplay.activateDisplays(time.getMinutes());
+        minutesDisplay.activateDisplays(time.getMinutes());
 
-        Beautify(seconds, fiveHours, hours, fiveMinutes, minutes);
+        Beautify(seconds, hours, fiveMinutes);
     }
 
-    private void Beautify(DisplayNode seconds, LinkedList<DisplayNode> fiveHours, LinkedList<DisplayNode> hours, LinkedList<DisplayNode> fiveMinutes, LinkedList<DisplayNode> minutes) {
+    private void Beautify(DisplayNode seconds, LinkedList<DisplayNode> hours, LinkedList<DisplayNode> fiveMinutes) {
 
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
@@ -44,16 +44,7 @@ public class BerlinClock {
 +"                           *   "+s+"   *                            \n"
 +"                            *     *                             \n"
 +"                              * *                               \n");
-
-        String fh1 = fiveHours.get(0).getColour();
-        String fh2 = fiveHours.get(1).getColour();
-        String fh3 = fiveHours.get(2).getColour();
-        String fh4 = fiveHours.get(3).getColour();
-
-        System.out.print(
-" ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-+" ║     "+fh1+"      ║║     "+fh2+"      ║║     "+fh3+"      ║║     "+fh4+"      ║ \n"
-+" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n");
+        System.out.println(fiveHoursDisplay.getPrintableDisplay());
 
         String h1 = hours.get(0).getColour();
         String h2 = hours.get(1).getColour();
