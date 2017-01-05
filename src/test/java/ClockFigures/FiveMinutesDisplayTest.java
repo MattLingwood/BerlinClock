@@ -41,4 +41,24 @@ public class FiveMinutesDisplayTest extends DisplayTestSpecification{
 
         assertThat(countActiveDisplays(activeDisplays), is(11));
     }
+
+    @Test
+    public void new_five_minute_display_returns_blank_display_string(){
+        String expected = " ╔═╗╔═╗╔═╗ ╔═╗╔═╗╔═╗  ╔═╗╔═╗╔═╗  ╔═╗╔═╗ \n"
+                         +" ║O ║║O║║O ║ ║O ║║O ║║O║  ║O ║║O ║║O║  ║O ║║O ║ \n"
+                         +" ╚═╝╚═╝╚═╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝ \n";
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+
+    }
+
+    @Test
+    public void fifteen_minutes_returns_red_red_yellow_rest_off_display_string(){
+        String expected = " ╔═╗╔═╗╔═╗ ╔═╗╔═╗╔═╗  ╔═╗╔═╗╔═╗  ╔═╗╔═╗ \n"
+                         +" ║Y ║║Y║║R ║ ║O ║║O ║║O║  ║O ║║O ║║O║  ║O ║║O ║ \n"
+                         +" ╚═╝╚═╝╚═╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝ \n";
+        display.activateDisplays(15);
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
 }
