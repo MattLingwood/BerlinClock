@@ -35,6 +35,7 @@ public class YellowDisplayNodeTest {
     @Test
     public void Get_colour_is_off_by_default(){
         assertThat(displayNode.getColour(),is("O"));
+        assertThat(displayNode.getAnsiColour(), is("\u001B[30m"));
     }
 
     @Test
@@ -42,5 +43,6 @@ public class YellowDisplayNodeTest {
         displayNode.setOn();
 
         assertThat(displayNode.getColour(),is("Y"));
+        assertThat(displayNode.getAnsiColour(), is("\u001B[33m"));
     }
 }

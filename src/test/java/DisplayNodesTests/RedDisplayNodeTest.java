@@ -15,7 +15,7 @@ public class RedDisplayNodeTest {
     private DisplayNode displayNode;
 
     @Before
-    public void ex(){
+    public void init(){
         displayNode = new RedDisplayNode();
     }
 
@@ -27,6 +27,7 @@ public class RedDisplayNodeTest {
     @Test
     public void get_colour_is_off_by_default(){
         assertThat(displayNode.getColour(),is("O"));
+        assertThat(displayNode.getAnsiColour(), is("\u001B[30m"));
     }
 
     @Test
@@ -34,6 +35,7 @@ public class RedDisplayNodeTest {
         displayNode.setOn();
 
         assertThat(displayNode.getColour(),is("R"));
+        assertThat(displayNode.getAnsiColour(), is("\u001B[31m"));
     }
 
     @Test

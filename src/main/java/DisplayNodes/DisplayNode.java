@@ -7,6 +7,9 @@ public abstract class DisplayNode {
 
     private boolean on = false;
 
+    protected static final String ANSI_OFF = "\u001B[30m";
+    protected static final String OFF = "O";
+
     public boolean isOn() {
         return on;
     }
@@ -20,4 +23,6 @@ public abstract class DisplayNode {
     }
 
     public abstract String getColour();
+
+    public abstract String getAnsiColour();
 }

@@ -1,7 +1,6 @@
 package TimingsTest;
 
 import Timings.TimeNode;
-import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
