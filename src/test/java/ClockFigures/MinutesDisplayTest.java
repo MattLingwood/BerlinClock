@@ -46,4 +46,24 @@ public class MinutesDisplayTest extends DisplayTestSpecification{
 
         assertThat(countActiveDisplays(activeDisplays), is(0));
     }
+
+    @Test
+    public void get_printable_display_returns_off_display_string_with_new_clock(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                +" ║     O      ║║     O      ║║     O      ║║     O      ║ \n"
+                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
+
+    @Test
+    public void get_printable_display_returns_3_yellow_display_string_with_3_minutes_time(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                +" ║     Y      ║║     Y      ║║     Y      ║║     O      ║ \n"
+                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+
+        display.activateDisplays(3);
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
 }
