@@ -49,18 +49,20 @@ public class MinutesDisplayTest extends DisplayTestSpecification{
 
     @Test
     public void get_printable_display_returns_off_display_string_with_new_clock(){
-        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-                +" ║     O      ║║     O      ║║     O      ║║     O      ║ \n"
-                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+        String expected =
+                 ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
+                +ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+"\n"
+                +ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
 
         assertThat(display.getPrintableDisplay(),is(expected));
     }
 
     @Test
     public void get_printable_display_returns_3_yellow_display_string_with_3_minutes_time(){
-        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-                +" ║     Y      ║║     Y      ║║     Y      ║║     O      ║ \n"
-                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+        String expected =
+                 ANSI_YELLOW+"╔═══════╗"+ANSI_RESET+ANSI_YELLOW+"╔═══════╗"+ANSI_RESET+ANSI_YELLOW+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
+                +ANSI_YELLOW+"║     Y      ║"+ANSI_RESET+ANSI_YELLOW+"║     Y      ║"+ANSI_RESET+ANSI_YELLOW+"║     Y      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+"\n"
+                +ANSI_YELLOW+"╚═══════╝"+ANSI_RESET+ANSI_YELLOW+"╚═══════╝"+ANSI_RESET+ANSI_YELLOW+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
 
         display.activateDisplays(3);
 

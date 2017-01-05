@@ -20,7 +20,7 @@ public class HoursDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
-        return createFourDisplayRow(displayNodes);
+        return createFourDisplayRow();
     }
 
     public List<DisplayNode> activateDisplays(int hours) {

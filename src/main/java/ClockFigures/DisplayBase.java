@@ -25,7 +25,7 @@ public abstract class DisplayBase {
         return displayNodes;
     }
 
-    protected String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
+    protected String createFourDisplayRow() {
         String firstLine = "", secondLine = "", thirdLine = "";
 
 

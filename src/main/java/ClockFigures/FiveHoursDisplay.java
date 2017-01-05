@@ -21,7 +21,7 @@ public class FiveHoursDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
-        return createFourDisplayRow(displayNodes);
+        return createFourDisplayRow();
     }
 
 
