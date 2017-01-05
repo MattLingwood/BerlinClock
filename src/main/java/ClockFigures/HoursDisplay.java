@@ -20,15 +20,7 @@ public class HoursDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
-        String h1 = displayNodes.get(0).getColour();
-        String h2 = displayNodes.get(1).getColour();
-        String h3 = displayNodes.get(2).getColour();
-        String h4 = displayNodes.get(3).getColour();
-
-        String display = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-                        +" ║     "+h1+"      ║║     "+h2+"      ║║     "+h3+"      ║║     "+h4+"      ║ \n"
-                        +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
-        return display;
+        return createFourDisplayRow(displayNodes);
     }
 
     public List<DisplayNode> activateDisplays(int hours) {
