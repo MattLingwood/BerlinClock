@@ -47,5 +47,23 @@ public class HourDisplayTest extends DisplayTestSpecification {
         assertThat(countActiveDisplays(activeDisplays), is(0));
     }
 
+    @Test
+    public void get_printable_display_returns_off_display_string_with_new_clock(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                        +" ║     O      ║║     O      ║║     O      ║║     O      ║ \n"
+                        +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
 
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
+
+    @Test
+    public void get_printable_display_returns_3_red_display_string_with_3_hours_time(){
+        String expected = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
+                +" ║     R      ║║     R      ║║     R      ║║     O      ║ \n"
+                +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
+
+        display.activateDisplays(3);
+
+        assertThat(display.getPrintableDisplay(),is(expected));
+    }
 }

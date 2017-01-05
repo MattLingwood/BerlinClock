@@ -26,29 +26,21 @@ public class BerlinClock {
     public void setTime(TimeNode time){
         secondsDisplay.activateDisplays(time.getSeconds());
         fiveHoursDisplay.activateDisplays(time.getHours());
-        LinkedList<DisplayNode> hours = (LinkedList<DisplayNode>) hoursDisplay.activateDisplays(time.getHours());
+        hoursDisplay.activateDisplays(time.getHours());
         LinkedList<DisplayNode> fiveMinutes = (LinkedList<DisplayNode>) fiveMinutesDisplay.activateDisplays(time.getMinutes());
         minutesDisplay.activateDisplays(time.getMinutes());
 
-        Beautify(hours, fiveMinutes);
+        Beautify(fiveMinutes);
     }
 
-    private void Beautify(LinkedList<DisplayNode> hours, LinkedList<DisplayNode> fiveMinutes) {
+    private void Beautify(LinkedList<DisplayNode> fiveMinutes) {
 
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         System.out.println(secondsDisplay.getPrintableDisplay());
         System.out.println(fiveHoursDisplay.getPrintableDisplay());
+        System.out.println(hoursDisplay.getPrintableDisplay());
 
-        String h1 = hours.get(0).getColour();
-        String h2 = hours.get(1).getColour();
-        String h3 = hours.get(2).getColour();
-        String h4 = hours.get(3).getColour();
-
-        System.out.print(
-" ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-+" ║     "+h1+"      ║║     "+h2+"      ║║     "+h3+"      ║║     "+h4+"      ║ \n"
-+" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n");
 
         String fm1 = fiveMinutes.get(0).getColour();
         String fm2 = fiveMinutes.get(1).getColour();
