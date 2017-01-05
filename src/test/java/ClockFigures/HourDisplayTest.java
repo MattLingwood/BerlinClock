@@ -51,7 +51,7 @@ public class HourDisplayTest extends DisplayTestSpecification {
     public void get_printable_display_returns_off_display_string_with_new_clock(){
         String expected =
                  ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
-                +ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+"\n"
+                +ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+"\n"
                 +ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
 
         assertThat(display.getPrintableDisplay(),is(expected));
@@ -61,7 +61,7 @@ public class HourDisplayTest extends DisplayTestSpecification {
     public void get_printable_display_returns_3_red_display_string_with_3_hours_time(){
         String expected =
                  ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
-                +ANSI_RED+"║     R      ║"+ANSI_RESET+ANSI_RED+"║     R      ║"+ANSI_RESET+ANSI_RED+"║     R      ║"+ANSI_RESET+ANSI_BLACK+"║     O      ║"+ANSI_RESET+"\n"
+                +ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+"\n"
                 +ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
 
         display.activateDisplays(3);

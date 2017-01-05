@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FiveHoursDisplay extends DisplayBase {
 
-    public FiveHoursDisplay(){
+    public FiveHoursDisplay( ){
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
@@ -21,6 +21,7 @@ public class FiveHoursDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
+        DisplayHelper.createFourDisplayRow(displayNodes);
         return createFourDisplayRow();
     }
 

@@ -35,18 +35,19 @@ public class FiveMinutesDisplay extends DisplayBase {
             String colour = display.getColour();
             String ansiColour = display.getAnsiColour();
 
-            if(displayCounter==2){
-                firstLine+= ansiColour + "╔═╗ " + ANSI_RESET;
-                secondLine+= ansiColour + "║"+colour+"║ " + ANSI_RESET;
-                thirdLine+= ansiColour + "╚═╝ " + ANSI_RESET;
+            firstLine+= ansiColour + "╔═╗" + ANSI_RESET;
+            secondLine+= ansiColour + "║"+colour+"║" + ANSI_RESET;
+            thirdLine+= ansiColour + "╚═╝" + ANSI_RESET;
+
+            displayCounter += 1;
+
+            if(displayCounter==3){
+                firstLine+= " ";
+                secondLine+= " ";
+                thirdLine+= " ";
                 displayCounter = 0;
-                continue;
             }
 
-            firstLine+= ansiColour + "╔═╗" + ANSI_RESET;
-            secondLine+= ansiColour + "║"+colour+" ║" + ANSI_RESET;
-            thirdLine+= ansiColour + "╚═╝" + ANSI_RESET;
-            displayCounter += 1;
         }
 
         firstLine+="\n";

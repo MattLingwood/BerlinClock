@@ -6,13 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Matt on 16/12/2016.
+ * Created by Matt on 05/01/2017.
  */
-public abstract class DisplayBase {
-    protected LinkedList<DisplayNode> displayNodes = new LinkedList<>();
-    protected static final String ANSI_RESET = "\u001B[0m";
+class DisplayHelper {
+    private static String ANSI_RESET = "\u001B[0m";
 
-    protected final List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
+    public static final List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
         int counter=0;
         for (DisplayNode display: displayNodes){
             if(counter<activeDisplays){
@@ -25,11 +24,11 @@ public abstract class DisplayBase {
         return displayNodes;
     }
 
-    protected final String createFourDisplayRow() {
+    public static final String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
         String firstLine = "", secondLine = "", thirdLine = "";
 
 
-        for (DisplayNode display : this.displayNodes){
+        for (DisplayNode display : displayNodes){
             String colour = display.getColour();
             String ansiColour = display.getAnsiColour();
 
@@ -45,7 +44,4 @@ public abstract class DisplayBase {
         return firstLine + secondLine + thirdLine;
     }
 
-    public abstract String getPrintableDisplay();
-
-    public abstract List<DisplayNode> activateDisplays(int timePeriod);
 }
