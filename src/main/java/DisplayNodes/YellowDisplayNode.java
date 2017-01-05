@@ -5,8 +5,8 @@ package DisplayNodes;
  */
 public class YellowDisplayNode extends DisplayNode {
 
-    public static final String OFF = "Off";
-    public static final String COLOUR = "Yellow";
+    public static final String OFF = "O";
+    public static final String COLOUR = "Y";
 
     @Override
     public String getColour() {

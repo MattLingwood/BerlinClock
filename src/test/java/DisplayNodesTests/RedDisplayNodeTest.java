@@ -26,14 +26,14 @@ public class RedDisplayNodeTest {
 
     @Test
     public void get_colour_is_off_by_default(){
-        assertThat(displayNode.getColour(),is("Off"));
+        assertThat(displayNode.getColour(),is("O"));
     }
 
     @Test
     public void get_colour_is_red_when_set_on(){
         displayNode.setOn();
 
-        assertThat(displayNode.getColour(),is("Red"));
+        assertThat(displayNode.getColour(),is("R"));
     }
 
     @Test

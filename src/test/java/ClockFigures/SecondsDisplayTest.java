@@ -22,14 +22,14 @@ public class SecondsDisplayTest {
     public void Even_seconds_are_Yellow(){
         DisplayNode node = display.getDisplay(10);
 
-        assertThat(node.getColour(), is("Yellow"));
+        assertThat(node.getColour(), is("Y"));
     }
 
     @Test
     public void Odd_seconds_are_Off() {
         DisplayNode node = display.getDisplay(9);
 
-        assertThat(node.getColour(), is("Off"));
+        assertThat(node.getColour(), is("O"));
     }
 
     @Test
@@ -41,8 +41,8 @@ public class SecondsDisplayTest {
         DisplayNode thirdNode = display.getDisplay(12);
         String thirdReturnedColour = thirdNode.getColour();
 
-        assertThat(firstReturnedColour, is("Yellow"));
-        assertThat(secondReturnedColour, is("Off"));
-        assertThat(thirdReturnedColour, is("Yellow"));
+        assertThat(firstReturnedColour, is("Y"));
+        assertThat(secondReturnedColour, is("O"));
+        assertThat(thirdReturnedColour, is("Y"));
     }
 }

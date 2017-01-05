@@ -24,5 +24,7 @@ public abstract class DisplayBase {
         return displayNodes;
     }
 
+    public abstract String getPrintableDisplay();
+
     public abstract List<DisplayNode> activateDisplays(int timePeriod);
 }

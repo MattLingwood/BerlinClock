@@ -34,13 +34,13 @@ public class YellowDisplayNodeTest {
 
     @Test
     public void Get_colour_is_off_by_default(){
-        assertThat(displayNode.getColour(),is("Off"));
+        assertThat(displayNode.getColour(),is("O"));
     }
 
     @Test
     public void Get_colour_is_yellow_when_set_on(){
         displayNode.setOn();
 
-        assertThat(displayNode.getColour(),is("Yellow"));
+        assertThat(displayNode.getColour(),is("Y"));
     }
 }

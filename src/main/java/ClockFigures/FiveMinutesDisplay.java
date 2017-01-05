@@ -27,6 +27,11 @@ public class FiveMinutesDisplay extends DisplayBase {
 
 
     @Override
+    public String getPrintableDisplay() {
+        return null;
+    }
+
+    @Override
     public List<DisplayNode> activateDisplays(int minutes) {
         int activeDisplays = minutes/5;
         return turnDisplaysOn(activeDisplays, displayNodes);

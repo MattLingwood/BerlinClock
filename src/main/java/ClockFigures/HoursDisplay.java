@@ -18,6 +18,11 @@ public class HoursDisplay extends DisplayBase {
         displayNodes.add(new RedDisplayNode());
     }
 
+    @Override
+    public String getPrintableDisplay() {
+        return null;
+    }
+
     public List<DisplayNode> activateDisplays(int hours) {
 
         int activeDisplays = hours%5;

@@ -10,7 +10,7 @@ import java.util.Calendar;
 public class TimeTeller {
 
     public TimeNode getTime() {
-        DateFormat timeFormat = new SimpleDateFormat("HH:mm:00");
+        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
         Calendar cali = Calendar.getInstance();
         return new TimeNode(timeFormat.format(cali.getTimeInMillis()));
     }
