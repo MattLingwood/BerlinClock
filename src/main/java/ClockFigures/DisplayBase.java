@@ -25,6 +25,26 @@ public abstract class DisplayBase {
         return displayNodes;
     }
 
+    protected String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
+        String firstLine = "", secondLine = "", thirdLine = "";
+
+
+        for (DisplayNode display : this.displayNodes){
+            String colour = display.getColour();
+            String ansiColour = display.getAnsiColour();
+
+            firstLine+= ansiColour + "╔═══════╗" + ANSI_RESET;
+            secondLine+= ansiColour + "║     "+colour+"      ║" + ANSI_RESET;
+            thirdLine+= ansiColour + "╚═══════╝" + ANSI_RESET;
+        }
+
+        firstLine+="\n";
+        secondLine+="\n";
+        thirdLine+="\n";
+
+        return firstLine + secondLine + thirdLine;
+    }
+
     public abstract String getPrintableDisplay();
 
     public abstract List<DisplayNode> activateDisplays(int timePeriod);

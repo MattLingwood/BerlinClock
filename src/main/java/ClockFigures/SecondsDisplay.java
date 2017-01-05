@@ -20,11 +20,11 @@ public class SecondsDisplay extends DisplayBase{
         String ansiColour = displayNodes.getFirst().getAnsiColour();
 
         String display = ansiColour
-                        +"                              * *                               \n"
-                        +"                            *     *                             \n"
-                        +"                           *   "+s+"   *                            \n"
-                        +"                            *     *                             \n"
-                        +"                              * *                               \n"
+                        +"                             * *                               \n"
+                        +"                           *     *                             \n"
+                        +"                          *   "+s+"   *                            \n"
+                        +"                           *     *                             \n"
+                        +"                             * *                               \n"
                         +ANSI_RESET;
 
         return display;

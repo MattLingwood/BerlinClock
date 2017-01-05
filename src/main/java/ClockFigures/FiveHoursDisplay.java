@@ -3,6 +3,7 @@ package ClockFigures;
 import DisplayNodes.DisplayNode;
 import DisplayNodes.RedDisplayNode;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,16 +21,9 @@ public class FiveHoursDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
-        String fh1 = displayNodes.get(0).getColour();
-        String fh2 = displayNodes.get(1).getColour();
-        String fh3 = displayNodes.get(2).getColour();
-        String fh4 = displayNodes.get(3).getColour();
-
-        String display = " ╔═══════╗╔═══════╗╔═══════╗╔═══════╗ \n"
-                        +" ║     "+fh1+"      ║║     "+fh2+"      ║║     "+fh3+"      ║║     "+fh4+"      ║ \n"
-                        +" ╚═══════╝╚═══════╝╚═══════╝╚═══════╝ \n";
-        return display;
+        return createFourDisplayRow(displayNodes);
     }
+
 
     public List<DisplayNode> activateDisplays(int hours) {
 
