@@ -24,26 +24,20 @@ public class BerlinClock {
     }
 
     public void setTime(TimeNode time){
-        LinkedList<DisplayNode> seconds = (LinkedList<DisplayNode>) secondsDisplay.activateDisplays(time.getSeconds());
+        secondsDisplay.activateDisplays(time.getSeconds());
         fiveHoursDisplay.activateDisplays(time.getHours());
         LinkedList<DisplayNode> hours = (LinkedList<DisplayNode>) hoursDisplay.activateDisplays(time.getHours());
         LinkedList<DisplayNode> fiveMinutes = (LinkedList<DisplayNode>) fiveMinutesDisplay.activateDisplays(time.getMinutes());
         minutesDisplay.activateDisplays(time.getMinutes());
 
-        Beautify(seconds, hours, fiveMinutes);
+        Beautify(hours, fiveMinutes);
     }
 
-    private void Beautify(LinkedList<DisplayNode> seconds, LinkedList<DisplayNode> hours, LinkedList<DisplayNode> fiveMinutes) {
+    private void Beautify(LinkedList<DisplayNode> hours, LinkedList<DisplayNode> fiveMinutes) {
 
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-        String s = seconds.getFirst().getColour();
-        System.out.println(
-"                              * *                               \n"
-+"                            *     *                             \n"
-+"                           *   "+s+"   *                            \n"
-+"                            *     *                             \n"
-+"                              * *                               \n");
+        System.out.println(secondsDisplay.getPrintableDisplay());
         System.out.println(fiveHoursDisplay.getPrintableDisplay());
 
         String h1 = hours.get(0).getColour();

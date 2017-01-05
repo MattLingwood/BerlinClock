@@ -21,14 +21,14 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void Even_seconds_are_Yellow(){
+    public void Even_seconds_have_one_display(){
         List<DisplayNode> activeDisplays = display.activateDisplays(10);
 
         assertThat((countActiveDisplays(activeDisplays)), is(1));
     }
 
     @Test
-    public void Odd_seconds_are_Off() {
+    public void Odd_seconds_have_no_display() {
         List<DisplayNode> activeDisplays = display.activateDisplays(9);
 
         assertThat((countActiveDisplays(activeDisplays)), is(0));
@@ -46,5 +46,42 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
         assertThat(firstReturnedColour, is("Y"));
         assertThat(secondReturnedColour, is("O"));
         assertThat(thirdReturnedColour, is("Y"));
+    }
+
+    @Test
+    public void new_seconds_display_returns_off_display(){
+        String expected ="                              * *                               \n"
+                        +"                            *     *                             \n"
+                        +"                           *   O   *                            \n"
+                        +"                            *     *                             \n"
+                        +"                              * *                               \n";
+
+        assertThat(display.getPrintableDisplay(), is(expected));
+    }
+
+    @Test
+    public void one_second_returns_off_display(){
+        String expected ="                              * *                               \n"
+                        +"                            *     *                             \n"
+                        +"                           *   O   *                            \n"
+                        +"                            *     *                             \n"
+                        +"                              * *                               \n";
+
+        display.activateDisplays(1);
+
+        assertThat(display.getPrintableDisplay(), is(expected));
+    }
+
+    @Test
+    public void ten_seconds_returns_yellow_display(){
+        String expected ="                              * *                               \n"
+                        +"                            *     *                             \n"
+                        +"                           *   Y   *                            \n"
+                        +"                            *     *                             \n"
+                        +"                              * *                               \n";
+
+        display.activateDisplays(10);
+
+        assertThat(display.getPrintableDisplay(), is(expected));
     }
 }

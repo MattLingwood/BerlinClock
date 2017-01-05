@@ -16,7 +16,15 @@ public class SecondsDisplay extends DisplayBase{
 
     @Override
     public String getPrintableDisplay() {
-        return null;
+        String s = displayNodes.getFirst().getColour();
+
+        String display = "                              * *                               \n"
+                        +"                            *     *                             \n"
+                        +"                           *   "+s+"   *                            \n"
+                        +"                            *     *                             \n"
+                        +"                              * *                               \n";
+
+        return display;
     }
 
     @Override
