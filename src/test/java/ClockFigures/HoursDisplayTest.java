@@ -12,8 +12,8 @@ import static org.hamcrest.core.Is.is;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class HourDisplayTest extends DisplayTestSpecification {
-    private DisplayBase display;
+public class HoursDisplayTest extends DisplayTestSpecification {
+    private HoursDisplay display;
 
     @Before
     public void init(){

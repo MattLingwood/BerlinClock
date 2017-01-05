@@ -10,25 +10,22 @@ import java.util.List;
  * Created by Matt on 16/12/2016.
  */
 
-public class FiveHoursDisplay extends DisplayBase {
+public class FiveHoursDisplay {
 
-    public FiveHoursDisplay( ){
+    private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+
+    public FiveHoursDisplay() {
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
     }
 
-    @Override
     public String getPrintableDisplay() {
-        DisplayHelper.createFourDisplayRow(displayNodes);
-        return createFourDisplayRow();
+        return DisplayHelper.createFourDisplayRow(displayNodes);
     }
-
 
     public List<DisplayNode> activateDisplays(int hours) {
-
-        int activeDisplays = hours/5;
-        return turnDisplaysOn(activeDisplays, displayNodes);
+        return DisplayHelper.turnDisplaysOn(hours / 5, displayNodes);
     }
 }

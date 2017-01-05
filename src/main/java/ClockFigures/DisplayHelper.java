@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Matt on 05/01/2017.
  */
 class DisplayHelper {
-    private static String ANSI_RESET = "\u001B[0m";
+    public static String ANSI_RESET = "\u001B[0m";
 
     public static final List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
         int counter=0;

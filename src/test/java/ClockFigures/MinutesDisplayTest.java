@@ -13,7 +13,7 @@ import static org.hamcrest.core.Is.is;
  * Created by Matt on 16/12/2016.
  */
 public class MinutesDisplayTest extends DisplayTestSpecification{
-    private DisplayBase display;
+    private MinutesDisplay display;
 
     @Before
     public void init(){
