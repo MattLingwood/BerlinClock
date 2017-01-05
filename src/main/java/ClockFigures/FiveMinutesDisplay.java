@@ -28,22 +28,32 @@ public class FiveMinutesDisplay extends DisplayBase {
 
     @Override
     public String getPrintableDisplay() {
-        String fm1 = displayNodes.get(0).getColour();
-        String fm2 = displayNodes.get(1).getColour();
-        String fm3 = displayNodes.get(2).getColour();
-        String fm4 = displayNodes.get(3).getColour();
-        String fm5 = displayNodes.get(4).getColour();
-        String fm6 = displayNodes.get(5).getColour();
-        String fm7 = displayNodes.get(6).getColour();
-        String fm8 = displayNodes.get(7).getColour();
-        String fm9 = displayNodes.get(8).getColour();
-        String fm10 = displayNodes.get(9).getColour();
-        String fm11 = displayNodes.get(10).getColour();
+        String firstLine = "", secondLine = "", thirdLine = "";
 
-        String display = " ╔═╗╔═╗╔═╗ ╔═╗╔═╗╔═╗  ╔═╗╔═╗╔═╗  ╔═╗╔═╗ \n"
-                        +" ║"+fm1+" ║║"+fm2+"║║"+fm3+" ║ ║"+fm4+" ║║"+fm5+" ║║"+fm6+"║  ║"+fm7+" ║║"+fm8+" ║║"+fm9+"║  ║"+fm10+" ║║"+fm11+" ║ \n"
-                        +" ╚═╝╚═╝╚═╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝ \n";
-        return display;
+        int displayCounter=0;
+        for (DisplayNode display : this.displayNodes){
+            String colour = display.getColour();
+            String ansiColour = display.getAnsiColour();
+
+            if(displayCounter==2){
+                firstLine+= ansiColour + "╔═╗ " + ANSI_RESET;
+                secondLine+= ansiColour + "║"+colour+"║ " + ANSI_RESET;
+                thirdLine+= ansiColour + "╚═╝ " + ANSI_RESET;
+                displayCounter = 0;
+                continue;
+            }
+
+            firstLine+= ansiColour + "╔═╗" + ANSI_RESET;
+            secondLine+= ansiColour + "║"+colour+" ║" + ANSI_RESET;
+            thirdLine+= ansiColour + "╚═╝" + ANSI_RESET;
+            displayCounter += 1;
+        }
+
+        firstLine+="\n";
+        secondLine+="\n";
+        thirdLine+="\n";
+
+        return firstLine + secondLine + thirdLine;
     }
 
     @Override

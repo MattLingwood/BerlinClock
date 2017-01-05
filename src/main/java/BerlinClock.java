@@ -46,10 +46,10 @@ public class BerlinClock {
 
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-        System.out.println(secondsDisplay.getPrintableDisplay());
-        System.out.println(fiveHoursDisplay.getPrintableDisplay());
-        System.out.println(hoursDisplay.getPrintableDisplay());
-        System.out.println(fiveMinutesDisplay.getPrintableDisplay());
-        System.out.println(minutesDisplay.getPrintableDisplay());
+        System.out.print(secondsDisplay.getPrintableDisplay());
+        System.out.print(fiveHoursDisplay.getPrintableDisplay());
+        System.out.print(hoursDisplay.getPrintableDisplay());
+        System.out.print(fiveMinutesDisplay.getPrintableDisplay());
+        System.out.print(minutesDisplay.getPrintableDisplay());
     }
 }

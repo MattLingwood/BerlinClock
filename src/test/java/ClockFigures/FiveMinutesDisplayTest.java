@@ -44,9 +44,10 @@ public class FiveMinutesDisplayTest extends DisplayTestSpecification{
 
     @Test
     public void new_five_minute_display_returns_blank_display_string(){
-        String expected = " ╔═╗╔═╗╔═╗ ╔═╗╔═╗╔═╗  ╔═╗╔═╗╔═╗  ╔═╗╔═╗ \n"
-                         +" ║O ║║O║║O ║ ║O ║║O ║║O║  ║O ║║O ║║O║  ║O ║║O ║ \n"
-                         +" ╚═╝╚═╝╚═╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝ \n";
+        String expected =
+ ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+"\n"
++ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+"\n"
++ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+"\n";
 
         assertThat(display.getPrintableDisplay(),is(expected));
 
@@ -54,9 +55,11 @@ public class FiveMinutesDisplayTest extends DisplayTestSpecification{
 
     @Test
     public void fifteen_minutes_returns_red_red_yellow_rest_off_display_string(){
-        String expected = " ╔═╗╔═╗╔═╗ ╔═╗╔═╗╔═╗  ╔═╗╔═╗╔═╗  ╔═╗╔═╗ \n"
-                         +" ║Y ║║Y║║R ║ ║O ║║O ║║O║  ║O ║║O ║║O║  ║O ║║O ║ \n"
-                         +" ╚═╝╚═╝╚═╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚═╝ \n";
+        String expected =
+ ANSI_YELLOW+"╔═╗"+ANSI_RESET+ANSI_YELLOW+"╔═╗"+ANSI_RESET+ANSI_RED+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗ "+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+"\n"
++ANSI_YELLOW+"║Y ║"+ANSI_RESET+ANSI_YELLOW+"║Y ║"+ANSI_RESET+ANSI_RED+"║R║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O║ "+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+ANSI_BLACK+"║O ║"+ANSI_RESET+"\n"
++ANSI_YELLOW+"╚═╝"+ANSI_RESET+ANSI_YELLOW+"╚═╝"+ANSI_RESET+ANSI_RED+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝ "+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+"\n";
+
         display.activateDisplays(15);
 
         assertThat(display.getPrintableDisplay(),is(expected));
