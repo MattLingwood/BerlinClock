@@ -11,7 +11,7 @@ import java.util.List;
 class DisplayHelper {
     public static String ANSI_RESET = "\u001B[0m";
 
-    public static final List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
+    public static List<DisplayNode> turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
         int counter=0;
         for (DisplayNode display: displayNodes){
             if(counter<activeDisplays){
@@ -24,7 +24,7 @@ class DisplayHelper {
         return displayNodes;
     }
 
-    public static final String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
+    public static String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
         String firstLine = "", secondLine = "", thirdLine = "";
 
 
