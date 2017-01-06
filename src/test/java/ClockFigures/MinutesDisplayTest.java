@@ -1,10 +1,7 @@
 package ClockFigures;
 
-import DisplayNodes.DisplayNode;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -19,20 +16,6 @@ public class MinutesDisplayTest extends DisplayTestSpecification {
     public void init() {
         Displays displays = new Displays();
         display = new MinutesDisplay(displays);
-    }
-
-    @Test
-    public void four_returns_four_displays() {
-        List<DisplayNode> activeDisplays = display.activateDisplays(4);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(4));
-    }
-
-    @Test
-    public void five_returns_zero_displays() {
-        List<DisplayNode> activeDisplays = display.activateDisplays(5);
-
-        assertThat(countActiveDisplays(activeDisplays), is(0));
     }
 
     @Test

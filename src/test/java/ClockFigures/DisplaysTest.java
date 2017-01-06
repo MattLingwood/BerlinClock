@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -31,9 +30,11 @@ public class DisplaysTest extends DisplayTestSpecification {
     public void turn_displays_on_returns_list_with_correct_amount_of_on_displays() {
         int expectedOnDisplays = 2;
 
-        List<DisplayNode> returnedDisplays = displays.turnDisplaysOn(expectedOnDisplays, listOfDisplays);
+        displays.turnDisplaysOn(expectedOnDisplays, listOfDisplays);
 
-        assertThat(countActiveDisplays(returnedDisplays), is(expectedOnDisplays));
+        int returnedDisplays = displays.getActiveDisplays(listOfDisplays);
+
+        assertThat(returnedDisplays, is(expectedOnDisplays));
     }
 
     @Test

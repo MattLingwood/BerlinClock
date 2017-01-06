@@ -4,7 +4,6 @@ import DisplayNodes.DisplayNode;
 import DisplayNodes.RedDisplayNode;
 
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by Matt on 16/12/2016.
@@ -27,7 +26,7 @@ public class HoursDisplay {
         return displays.createFourDisplayRow(displayNodes);
     }
 
-    public List<DisplayNode> activateDisplays(int hours) {
-        return displays.turnDisplaysOn(hours % 5, displayNodes);
+    public void activateDisplays(int hours) {
+        displays.turnDisplaysOn(hours % 5, displayNodes);
     }
 }

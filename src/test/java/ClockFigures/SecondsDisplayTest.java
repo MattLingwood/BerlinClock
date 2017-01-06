@@ -22,20 +22,6 @@ public class SecondsDisplayTest extends DisplayTestSpecification {
     }
 
     @Test
-    public void Even_seconds_have_one_display() {
-        List<DisplayNode> activeDisplays = display.activateDisplays(10);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(1));
-    }
-
-    @Test
-    public void Odd_seconds_have_no_display() {
-        List<DisplayNode> activeDisplays = display.activateDisplays(9);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(0));
-    }
-
-    @Test
     public void On_off_on_are_Yellow_Off_Yellow() {
         List<DisplayNode> firstActiveDisplays = display.activateDisplays(10);
         String firstReturnedColour = firstActiveDisplays.get(0).getColour();
