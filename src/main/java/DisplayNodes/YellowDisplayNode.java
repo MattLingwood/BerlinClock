@@ -10,7 +10,7 @@ public class YellowDisplayNode extends DisplayNode {
 
     @Override
     public String getColour() {
-        if (isOn()){
+        if (isOn()) {
             return COLOUR;
         }
         return OFF;
@@ -18,7 +18,7 @@ public class YellowDisplayNode extends DisplayNode {
 
     @Override
     public String getAnsiColour() {
-        if (isOn()){
+        if (isOn()) {
             return ANSI_COLOUR;
         }
         return ANSI_OFF;

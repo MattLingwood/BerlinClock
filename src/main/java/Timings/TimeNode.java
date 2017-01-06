@@ -12,19 +12,19 @@ public class TimeNode {
         String[] times = timeString.split(":");
 
         int hours = Integer.parseInt(times[0]);
-        if(hours>=24){
+        if (hours >= 24) {
             hours = 00;
         }
         this.hours = hours;
 
         int minutes = Integer.parseInt(times[1]);
-        if(minutes>=60){
+        if (minutes >= 60) {
             minutes = 00;
         }
         this.minutes = minutes;
 
         int seconds = Integer.parseInt(times[2]);
-        if(seconds>=60){
+        if (seconds >= 60) {
             seconds = 00;
         }
         this.seconds = seconds;

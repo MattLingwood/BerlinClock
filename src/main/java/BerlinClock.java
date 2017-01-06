@@ -1,5 +1,9 @@
 import ClockFigures.*;
 import Timings.TimeNode;
+import Timings.TimeTeller;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Matt on 16/12/2016.
@@ -15,23 +19,42 @@ public class BerlinClock {
 
 
     public BerlinClock() {
-        secondsDisplay = new SecondsDisplay();
-        fiveHoursDisplay = new FiveHoursDisplay();
-        hoursDisplay = new HoursDisplay();
-        fiveMinutesDisplay = new FiveMinutesDisplay();
-        minutesDisplay = new MinutesDisplay();
+        Displays displays = new Displays();
+        secondsDisplay = new SecondsDisplay(displays);
+        fiveHoursDisplay = new FiveHoursDisplay(displays);
+        hoursDisplay = new HoursDisplay(displays);
+        fiveMinutesDisplay = new FiveMinutesDisplay(displays);
+        minutesDisplay = new MinutesDisplay(displays);
     }
 
-    public void setTime(TimeNode time){
+    public void startClock() {
+        Timer timer = new Timer("Display Timer");
+
+        TimerTask task = getTimerTask();
+
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+    }
+
+    protected TimerTask getTimerTask() {
+        return new TimerTask() {
+            @Override
+            public void run() {
+                TimeNode time = new TimeTeller().getTime();
+                setTime(time);
+            }
+        };
+    }
+
+    public void setTime(TimeNode time) {
         int hours = time.getHours();
         int minutes = time.getMinutes();
 
-        if(hours!=storedHours){
+        if (hours != storedHours) {
             fiveHoursDisplay.activateDisplays(hours);
             hoursDisplay.activateDisplays(hours);
             storedHours = hours;
         }
-        if(minutes!=storedMinutes){
+        if (minutes != storedMinutes) {
             fiveMinutesDisplay.activateDisplays(minutes);
             minutesDisplay.activateDisplays(minutes);
             storedMinutes = minutes;

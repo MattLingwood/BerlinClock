@@ -12,9 +12,11 @@ import java.util.List;
 
 public class FiveHoursDisplay {
 
+    private final Displays displays;
     private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
 
-    public FiveHoursDisplay() {
+    public FiveHoursDisplay(Displays displays) {
+        this.displays = displays;
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
         displayNodes.add(new RedDisplayNode());
@@ -22,10 +24,10 @@ public class FiveHoursDisplay {
     }
 
     public String getPrintableDisplay() {
-        return DisplayHelper.createFourDisplayRow(displayNodes);
+        return displays.createFourDisplayRow(displayNodes);
     }
 
     public List<DisplayNode> activateDisplays(int hours) {
-        return DisplayHelper.turnDisplaysOn(hours / 5, displayNodes);
+        return displays.turnDisplaysOn(hours / 5, displayNodes);
     }
 }

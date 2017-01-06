@@ -12,9 +12,11 @@ import java.util.List;
  */
 public class FiveMinutesDisplay {
 
+    private final Displays displays;
     private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
 
-    public FiveMinutesDisplay() {
+    public FiveMinutesDisplay(Displays displays) {
+        this.displays = displays;
         displayNodes.add(new YellowDisplayNode());
         displayNodes.add(new YellowDisplayNode());
         displayNodes.add(new RedDisplayNode());
@@ -36,9 +38,9 @@ public class FiveMinutesDisplay {
             String colour = display.getColour();
             String ansiColour = display.getAnsiColour();
 
-            firstLine += ansiColour + "╔═╗" + DisplayHelper.ANSI_RESET;
-            secondLine += ansiColour + "║" + colour + "║" + DisplayHelper.ANSI_RESET;
-            thirdLine += ansiColour + "╚═╝" + DisplayHelper.ANSI_RESET;
+            firstLine += ansiColour + "╔═╗" + Displays.ANSI_RESET;
+            secondLine += ansiColour + "║" + colour + "║" + Displays.ANSI_RESET;
+            thirdLine += ansiColour + "╚═╝" + Displays.ANSI_RESET;
 
             displayCounter += 1;
 
@@ -59,6 +61,6 @@ public class FiveMinutesDisplay {
     }
 
     public List<DisplayNode> activateDisplays(int minutes) {
-        return DisplayHelper.turnDisplaysOn(minutes / 5, displayNodes);
+        return displays.turnDisplaysOn(minutes / 5, displayNodes);
     }
 }

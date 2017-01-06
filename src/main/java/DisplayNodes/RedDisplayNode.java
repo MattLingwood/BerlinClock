@@ -5,12 +5,12 @@ package DisplayNodes;
  */
 public class RedDisplayNode extends DisplayNode {
 
-    private final String COLOUR = "R";
     private static final String ANSI_COLOUR = "\u001B[31m";
+    private final String COLOUR = "R";
 
     @Override
     public String getColour() {
-        if(isOn()) {
+        if (isOn()) {
             return COLOUR;
         }
         return OFF;
@@ -18,7 +18,7 @@ public class RedDisplayNode extends DisplayNode {
 
     @Override
     public String getAnsiColour() {
-        if(isOn()) {
+        if (isOn()) {
             return ANSI_COLOUR;
         }
         return ANSI_OFF;

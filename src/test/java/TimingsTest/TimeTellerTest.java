@@ -23,22 +23,22 @@ public class TimeTellerTest {
     private TimeTeller timeTeller;
 
     @Before
-    public void init(){
+    public void init() {
         timeTeller = new TimeTeller();
     }
 
     @Test
-    public void get_midnight_returns_zero_time(){
-        SetCalenderTime(0,0,0);
+    public void get_midnight_returns_zero_time() {
+        SetCalenderTime(0, 0, 0);
         TimeNode returnedNode = timeTeller.getTime();
 
-        assertThat(returnedNode.getHours(),is(00));
-        assertThat(returnedNode.getMinutes(),is(00));
+        assertThat(returnedNode.getHours(), is(00));
+        assertThat(returnedNode.getMinutes(), is(00));
     }
 
     private void SetCalenderTime(int hours, int minutes, int seconds) {
         Calendar now = Calendar.getInstance();
-        now.set(0,0,0,hours,minutes,seconds);
+        now.set(0, 0, 0, hours, minutes, seconds);
 
         PowerMockito.mockStatic(Calendar.class);
         PowerMockito.when(Calendar.getInstance()).thenReturn(now);

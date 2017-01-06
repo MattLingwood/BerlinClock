@@ -5,10 +5,9 @@ package DisplayNodes;
  */
 public abstract class DisplayNode {
 
-    private boolean on = false;
-
     protected static final String ANSI_OFF = "\u001B[30m";
     protected static final String OFF = "O";
+    private boolean on = false;
 
     public boolean isOn() {
         return on;

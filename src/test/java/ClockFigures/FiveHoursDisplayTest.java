@@ -16,19 +16,20 @@ public class FiveHoursDisplayTest extends DisplayTestSpecification {
     private FiveHoursDisplay display;
 
     @Before
-    public void init(){
-        display = new FiveHoursDisplay();
+    public void init() {
+        Displays displays = new Displays();
+        display = new FiveHoursDisplay(displays);
     }
 
     @Test
-    public void Tenth_hour_returns_two_displays(){
+    public void Tenth_hour_returns_two_displays() {
         List<DisplayNode> activeDisplays = display.activateDisplays(10);
 
         assertThat((countActiveDisplays(activeDisplays)), is(2));
     }
 
     @Test
-    public void Nineth_tenth_eleventh_return_one_two_two(){
+    public void Nineth_tenth_eleventh_return_one_two_two() {
         List<DisplayNode> activeDisplays = display.activateDisplays(9);
         int countOne = countActiveDisplays(activeDisplays);
         List<DisplayNode> activeDisplaysTwo = display.activateDisplays(10);
@@ -42,14 +43,14 @@ public class FiveHoursDisplayTest extends DisplayTestSpecification {
     }
 
     @Test
-    public void get_printable_display_returns_3_red_display_string_with_15_hours_time(){
+    public void get_printable_display_returns_3_red_display_string_with_15_hours_time() {
         String expected =
- ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_RED+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
-+ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_RED+"║   R   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+"\n"
-+ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_RED+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
+                ANSI_RED + "╔═══════╗" + ANSI_RESET + ANSI_RED + "╔═══════╗" + ANSI_RESET + ANSI_RED + "╔═══════╗" + ANSI_RESET + ANSI_BLACK + "╔═══════╗" + ANSI_RESET + "\n"
+                        + ANSI_RED + "║   R   ║" + ANSI_RESET + ANSI_RED + "║   R   ║" + ANSI_RESET + ANSI_RED + "║   R   ║" + ANSI_RESET + ANSI_BLACK + "║   O   ║" + ANSI_RESET + "\n"
+                        + ANSI_RED + "╚═══════╝" + ANSI_RESET + ANSI_RED + "╚═══════╝" + ANSI_RESET + ANSI_RED + "╚═══════╝" + ANSI_RESET + ANSI_BLACK + "╚═══════╝" + ANSI_RESET + "\n";
 
         display.activateDisplays(15);
 
-        assertThat(display.getPrintableDisplay(),is(expected));
+        assertThat(display.getPrintableDisplay(), is(expected));
     }
 }

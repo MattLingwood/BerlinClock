@@ -12,16 +12,17 @@ import static org.hamcrest.core.Is.is;
 /**
  * Created by Matt on 16/12/2016.
  */
-public class SecondsDisplayTest extends DisplayTestSpecification{
+public class SecondsDisplayTest extends DisplayTestSpecification {
     private SecondsDisplay display;
 
     @Before
-    public void init(){
-        display = new SecondsDisplay();
+    public void init() {
+        Displays displays = new Displays();
+        display = new SecondsDisplay(displays);
     }
 
     @Test
-    public void Even_seconds_have_one_display(){
+    public void Even_seconds_have_one_display() {
         List<DisplayNode> activeDisplays = display.activateDisplays(10);
 
         assertThat((countActiveDisplays(activeDisplays)), is(1));
@@ -35,7 +36,7 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void On_off_on_are_Yellow_Off_Yellow(){
+    public void On_off_on_are_Yellow_Off_Yellow() {
         List<DisplayNode> firstActiveDisplays = display.activateDisplays(10);
         String firstReturnedColour = firstActiveDisplays.get(0).getColour();
         List<DisplayNode> secondActiveDisplays = display.activateDisplays(11);
@@ -49,14 +50,14 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void one_second_returns_off_display(){
-        String expected =ANSI_BLACK
-                        +"                 * *\n"
-                        +"               *     *\n"
-                        +"              *   O   *\n"
-                        +"               *     *\n"
-                        +"                 * *\n"
-                        +ANSI_RESET;
+    public void one_second_returns_off_display() {
+        String expected = ANSI_BLACK
+                + "                 * *\n"
+                + "               *     *\n"
+                + "              *   O   *\n"
+                + "               *     *\n"
+                + "                 * *\n"
+                + ANSI_RESET;
 
         display.activateDisplays(1);
 
@@ -64,14 +65,14 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void ten_seconds_returns_yellow_display(){
-        String expected =ANSI_YELLOW
-                        +"                 * *\n"
-                        +"               *     *\n"
-                        +"              *   Y   *\n"
-                        +"               *     *\n"
-                        +"                 * *\n"
-                        +ANSI_RESET;
+    public void ten_seconds_returns_yellow_display() {
+        String expected = ANSI_YELLOW
+                + "                 * *\n"
+                + "               *     *\n"
+                + "              *   Y   *\n"
+                + "               *     *\n"
+                + "                 * *\n"
+                + ANSI_RESET;
 
         display.activateDisplays(10);
 

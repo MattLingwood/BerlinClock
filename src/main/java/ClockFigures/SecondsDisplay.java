@@ -14,7 +14,7 @@ public class SecondsDisplay {
 
     private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
 
-    public SecondsDisplay() {
+    public SecondsDisplay(Displays displays) {
         displayNodes.add(new YellowDisplayNode());
     }
 
@@ -28,7 +28,7 @@ public class SecondsDisplay {
                 + "              *   " + s + "   *\n"
                 + "               *     *\n"
                 + "                 * *\n"
-                + DisplayHelper.ANSI_RESET;
+                + Displays.ANSI_RESET;
 
         return display;
     }
