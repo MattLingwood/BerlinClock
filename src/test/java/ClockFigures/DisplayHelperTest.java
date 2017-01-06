@@ -16,9 +16,11 @@ import static org.hamcrest.core.Is.is;
  */
 public class DisplayHelperTest extends DisplayTestSpecification {
     private LinkedList<DisplayNode> listOfDisplays = new LinkedList<>();
+    private DisplayHelper displayHelper;
 
     @Before
     public void init() {
+        displayHelper = new DisplayHelper();
         listOfDisplays.add(new YellowDisplayNode());
         listOfDisplays.add(new YellowDisplayNode());
         listOfDisplays.add(new YellowDisplayNode());

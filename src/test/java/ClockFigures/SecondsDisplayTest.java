@@ -49,19 +49,6 @@ public class SecondsDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void new_seconds_display_returns_off_display(){
-        String expected =ANSI_BLACK
-                        +"                 * *\n"
-                        +"               *     *\n"
-                        +"              *   O   *\n"
-                        +"               *     *\n"
-                        +"                 * *\n"
-                        +ANSI_RESET;
-
-        assertThat(display.getPrintableDisplay(), is(expected));
-    }
-
-    @Test
     public void one_second_returns_off_display(){
         String expected =ANSI_BLACK
                         +"                 * *\n"

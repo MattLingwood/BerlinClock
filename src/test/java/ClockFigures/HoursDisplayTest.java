@@ -21,19 +21,6 @@ public class HoursDisplayTest extends DisplayTestSpecification {
     }
 
     @Test
-    public void all_displays_are_off_by_default(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(0);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(0));
-    }
-    @Test
-    public void One_returns_one_display(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(1);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(1));
-    }
-
-    @Test
     public void four_returns_four_displays(){
         List<DisplayNode> activeDisplays = display.activateDisplays(4);
 
@@ -45,16 +32,6 @@ public class HoursDisplayTest extends DisplayTestSpecification {
         List<DisplayNode> activeDisplays = display.activateDisplays(5);
 
         assertThat(countActiveDisplays(activeDisplays), is(0));
-    }
-
-    @Test
-    public void get_printable_display_returns_off_display_string_with_new_clock(){
-        String expected =
-                 ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
-                +ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+"\n"
-                +ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
-
-        assertThat(display.getPrintableDisplay(),is(expected));
     }
 
     @Test

@@ -21,44 +21,10 @@ public class FiveHoursDisplayTest extends DisplayTestSpecification {
     }
 
     @Test
-    public void All_displays_are_off_by_default(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(0);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(0));
-    }
-
-    @Test
-    public void Fifth_hour_first_display_only(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(5);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(1));
-    }
-    @Test
-    public void Nineth_hour_first_display_only(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(9);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(1));
-    }
-
-    @Test
     public void Tenth_hour_returns_two_displays(){
         List<DisplayNode> activeDisplays = display.activateDisplays(10);
 
         assertThat((countActiveDisplays(activeDisplays)), is(2));
-    }
-
-    @Test
-    public void fifteenth_hour_returns_three_displays(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(15);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(3));
-    }
-
-    @Test
-    public void twentieth_hour_returns_four_displays(){
-        List<DisplayNode> activeDisplays = display.activateDisplays(20);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(4));
     }
 
     @Test
@@ -73,16 +39,6 @@ public class FiveHoursDisplayTest extends DisplayTestSpecification {
         assertThat(countOne, is(1));
         assertThat(countTwo, is(2));
         assertThat(countThree, is(2));
-    }
-
-    @Test
-    public void get_printable_display_returns_off_display_string_with_new_clock(){
-        String expected =
- ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+ANSI_BLACK+"╔═══════╗"+ANSI_RESET+"\n"
-+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+ANSI_BLACK+"║   O   ║"+ANSI_RESET+"\n"
-+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+ANSI_BLACK+"╚═══════╝"+ANSI_RESET+"\n";
-
-        assertThat(display.getPrintableDisplay(),is(expected));
     }
 
     @Test

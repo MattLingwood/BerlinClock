@@ -21,14 +21,6 @@ public class FiveMinutesDisplayTest extends DisplayTestSpecification{
     }
 
     @Test
-    public void Zero_returns_no_active_displays(){
-
-        List<DisplayNode> activeDisplays = display.activateDisplays(0);
-
-        assertThat((countActiveDisplays(activeDisplays)), is(0));
-    }
-
-    @Test
     public void twenty_five_returns_5_active_displays(){
 
         List<DisplayNode> activeDisplays = display.activateDisplays(25);
@@ -42,16 +34,6 @@ public class FiveMinutesDisplayTest extends DisplayTestSpecification{
         List<DisplayNode> activeDisplays = display.activateDisplays(55);
 
         assertThat(countActiveDisplays(activeDisplays), is(11));
-    }
-
-    @Test
-    public void new_five_minute_display_returns_blank_display_string(){
-        String expected =
- ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+" "+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+" "+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+" "+ANSI_BLACK+"╔═╗"+ANSI_RESET+ANSI_BLACK+"╔═╗"+ANSI_RESET+"\n"
-+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+" "+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+" "+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+" "+ANSI_BLACK+"║O║"+ANSI_RESET+ANSI_BLACK+"║O║"+ANSI_RESET+"\n"
-+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+" "+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+" "+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+" "+ANSI_BLACK+"╚═╝"+ANSI_RESET+ANSI_BLACK+"╚═╝"+ANSI_RESET+"\n";
-
-        assertThat(display.getPrintableDisplay(),is(expected));
     }
 
     @Test
