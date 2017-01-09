@@ -1,6 +1,5 @@
 package ClockFigures;
 
-import DisplayNodes.YellowDisplayNode;
 import Lamps.Lamp;
 import Lamps.LampColour;
 import org.junit.Before;
