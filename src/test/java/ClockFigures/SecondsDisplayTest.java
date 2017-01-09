@@ -1,6 +1,7 @@
 package ClockFigures;
 
 import DisplayNodes.DisplayNode;
+import Lamps.Lamp;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,11 +24,11 @@ public class SecondsDisplayTest extends DisplayTestSpecification {
 
     @Test
     public void On_off_on_are_Yellow_Off_Yellow() {
-        List<DisplayNode> firstActiveDisplays = display.activateDisplays(10);
+        List<Lamp> firstActiveDisplays = display.activateDisplays(10);
         String firstReturnedColour = firstActiveDisplays.get(0).getColour();
-        List<DisplayNode> secondActiveDisplays = display.activateDisplays(11);
+        List<Lamp> secondActiveDisplays = display.activateDisplays(11);
         String secondReturnedColour = secondActiveDisplays.get(0).getColour();
-        List<DisplayNode> thirdActiveDisplays = display.activateDisplays(12);
+        List<Lamp> thirdActiveDisplays = display.activateDisplays(12);
         String thirdReturnedColour = thirdActiveDisplays.get(0).getColour();
 
         assertThat(firstReturnedColour, is("Y"));

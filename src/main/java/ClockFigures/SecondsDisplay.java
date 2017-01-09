@@ -1,7 +1,7 @@
 package ClockFigures;
 
-import DisplayNodes.DisplayNode;
-import DisplayNodes.YellowDisplayNode;
+import Lamps.Lamp;
+import Lamps.LampColour;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,15 +12,15 @@ import java.util.List;
  */
 public class SecondsDisplay {
 
-    private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+    private LinkedList<Lamp> lamps = new LinkedList<>();
 
     public SecondsDisplay(Displays displays) {
-        displayNodes.add(new YellowDisplayNode());
+        lamps.add(new Lamp(LampColour.YELLOW));
     }
 
     public String getPrintableDisplay() {
-        String s = displayNodes.getFirst().getColour();
-        String ansiColour = displayNodes.getFirst().getAnsiColour();
+        String s = lamps.getFirst().getColour();
+        String ansiColour = lamps.getFirst().getAnsiColour();
 
         String display = ansiColour
                 + "                 * *\n"
@@ -33,12 +33,12 @@ public class SecondsDisplay {
         return display;
     }
 
-    public List<DisplayNode> activateDisplays(int seconds) {
+    public List<Lamp> activateDisplays(int seconds) {
         if (seconds % 2 == 0) {
-            displayNodes.getFirst().setOn();
+            lamps.getFirst().setOn();
         } else {
-            displayNodes.getFirst().setOff();
+            lamps.getFirst().setOff();
         }
-        return displayNodes;
+        return lamps;
     }
 }

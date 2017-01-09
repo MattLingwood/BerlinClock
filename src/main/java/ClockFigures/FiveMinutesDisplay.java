@@ -1,8 +1,7 @@
 package ClockFigures;
 
-import DisplayNodes.DisplayNode;
-import DisplayNodes.RedDisplayNode;
-import DisplayNodes.YellowDisplayNode;
+import Lamps.Lamp;
+import Lamps.LampColour;
 
 import java.util.LinkedList;
 
@@ -12,30 +11,30 @@ import java.util.LinkedList;
 public class FiveMinutesDisplay {
 
     private final Displays displays;
-    private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+    private LinkedList<Lamp> lamps = new LinkedList<>();
 
     public FiveMinutesDisplay(Displays displays) {
         this.displays = displays;
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
-        displayNodes.add(new YellowDisplayNode());
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.YELLOW));
+        lamps.add(new Lamp(LampColour.YELLOW));
     }
 
     public String getPrintableDisplay() {
         String firstLine = "", secondLine = "", thirdLine = "";
 
         int displayCounter = 0;
-        for (DisplayNode display : this.displayNodes) {
-            String colour = display.getColour();
-            String ansiColour = display.getAnsiColour();
+        for (Lamp lamp : this.lamps) {
+            String colour = lamp.getColour();
+            String ansiColour = lamp.getAnsiColour();
 
             firstLine += ansiColour + "╔═╗" + Displays.ANSI_RESET;
             secondLine += ansiColour + "║" + colour + "║" + Displays.ANSI_RESET;
@@ -60,6 +59,6 @@ public class FiveMinutesDisplay {
     }
 
     public void activateDisplays(int minutes) {
-        displays.turnDisplaysOn(minutes / 5, displayNodes);
+        displays.turnDisplaysOn(minutes / 5, lamps);
     }
 }

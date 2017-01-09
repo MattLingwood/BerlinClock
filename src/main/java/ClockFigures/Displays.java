@@ -1,6 +1,7 @@
 package ClockFigures;
 
 import DisplayNodes.DisplayNode;
+import Lamps.Lamp;
 
 import java.util.LinkedList;
 
@@ -10,25 +11,25 @@ import java.util.LinkedList;
 public class Displays {
     public static String ANSI_RESET = "\u001B[0m";
 
-    public void turnDisplaysOn(int activeDisplays, LinkedList<DisplayNode> displayNodes) {
+    public void turnDisplaysOn(int activeDisplays, LinkedList<Lamps.Lamp> displayNodes) {
         int counter = 0;
-        for (DisplayNode display : displayNodes) {
+        for (Lamps.Lamp lamp : displayNodes) {
             if (counter < activeDisplays) {
-                display.setOn();
+                lamp.setOn();
             } else {
-                display.setOff();
+                lamp.setOff();
             }
             counter++;
         }
     }
 
-    public String createFourDisplayRow(LinkedList<DisplayNode> displayNodes) {
+    public String createFourDisplayRow(LinkedList<Lamps.Lamp> displayNodes) {
         String firstLine = "", secondLine = "", thirdLine = "";
 
 
-        for (DisplayNode display : displayNodes) {
-            String colour = display.getColour();
-            String ansiColour = display.getAnsiColour();
+        for (Lamps.Lamp lamp : displayNodes) {
+            String colour = lamp.getColour();
+            String ansiColour = lamp.getAnsiColour();
 
             firstLine += ansiColour + "╔═══════╗" + ANSI_RESET;
             secondLine += ansiColour + "║   " + colour + "   ║" + ANSI_RESET;
@@ -42,7 +43,7 @@ public class Displays {
         return firstLine + secondLine + thirdLine;
     }
 
-    public int getActiveDisplays(LinkedList<DisplayNode> listOfDisplays) {
+    public int getActiveDisplays(LinkedList<Lamp> listOfDisplays) {
         return (int) listOfDisplays.stream().filter(display -> display.isOn()).count();
     }
 }

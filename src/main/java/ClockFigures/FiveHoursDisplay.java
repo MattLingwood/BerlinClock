@@ -1,7 +1,7 @@
 package ClockFigures;
 
-import DisplayNodes.DisplayNode;
-import DisplayNodes.RedDisplayNode;
+import Lamps.Lamp;
+import Lamps.LampColour;
 
 import java.util.LinkedList;
 
@@ -12,21 +12,21 @@ import java.util.LinkedList;
 public class FiveHoursDisplay {
 
     private final Displays displays;
-    private LinkedList<DisplayNode> displayNodes = new LinkedList<>();
+    private LinkedList<Lamp> lamps = new LinkedList<>();
 
     public FiveHoursDisplay(Displays displays) {
         this.displays = displays;
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new RedDisplayNode());
-        displayNodes.add(new RedDisplayNode());
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.RED));
+        lamps.add(new Lamp(LampColour.RED));
     }
 
     public String getPrintableDisplay() {
-        return displays.createFourDisplayRow(displayNodes);
+        return displays.createFourDisplayRow(lamps);
     }
 
     public void activateDisplays(int hours) {
-        displays.turnDisplaysOn(hours / 5, displayNodes);
+        displays.turnDisplaysOn(hours / 5, lamps);
     }
 }
