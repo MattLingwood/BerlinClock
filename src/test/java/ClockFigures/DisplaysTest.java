@@ -27,7 +27,7 @@ public class DisplaysTest extends DisplayTestSpecification {
     }
 
     @Test
-    public void turn_displays_on_returns_list_with_correct_amount_of_on_displays() {
+    public void activate_displays_causes_expected_number_of_displays_to_be_returned_by_get_active_displays() {
         int expectedOnDisplays = 2;
 
         displays.turnDisplaysOn(expectedOnDisplays, listOfDisplays);
